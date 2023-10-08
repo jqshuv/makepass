@@ -1,0 +1,27 @@
+{
+  "name": "makepass",
+  "version": "1.1.0",
+  "description": "A very simple password generator for the command line.",
+  "license": "MIT",
+  "author": "Joshua Schmitt <me@jqshuv.com>",
+  "repository": "https://github.com/jqshuv/makepass",
+  "keywords": [],
+  "main": "build/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "makepass": "build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "typescript": "^5.1.3"
+  }
+}

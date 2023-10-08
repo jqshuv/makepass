@@ -1,0 +1,271 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/jqshuv
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 215
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 55
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: "@jqshuv - makepass"
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 1860
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                                                                                      \r \r\e]2;jqshuv@vmd88107:~\a\e]1;~\a"
+  - delay: 15
+    content: "\r\e[0m\e[27m\e[24m\e[J\r\n\e[38;5;107m~\e[39m \r\n\e[37m❯\e[39m \e[K\e[?1h\e=\e[?2004h"
+  - delay: 382
+    content: p
+  - delay: 197
+    content: "\bpn"
+  - delay: 219
+    content: p
+  - delay: 100
+    content: m
+  - delay: 100
+    content: ' '
+  - delay: 100
+    content: i
+  - delay: 100
+    content: ' '
+  - delay: 100
+    content: '-'
+  - delay: 100
+    content: g
+  - delay: 100
+    content: ' '
+  - delay: 100
+    content: m
+  - delay: 100
+    content: a
+  - delay: 100
+    content: k
+  - delay: 100
+    content: e
+  - delay: 100
+    content: p
+  - delay: 100
+    content: a
+  - delay: 100
+    content: s
+  - delay: 100
+    content: s
+  - delay: 100
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;pnpm i -g makepass\a\e]1;pnpm\a"
+  - delay: 150
+    content: "Progress: resolved \e[96m0\e[39m, reused \e[96m1\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m\r\n"
+  - delay: 100
+    content: "\e[1AProgress: resolved \e[96m1\e[39m, reused \e[96m1\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m\r\n"
+  - delay: 150
+    content: "\e[1AProgress: resolved \e[96m2\e[39m, reused \e[96m1\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m\r\n"
+  - delay: 150
+    content: "\e[1AProgress: resolved \e[96m14\e[39m, reused \e[96m12\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m\r\n"
+  - delay: 150
+    content: "\e[1AProgress: resolved \e[96m46\e[39m, reused \e[96m45\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m\r\n"
+  - delay: 150
+    content: "\e[1AProgress: resolved \e[96m80\e[39m, reused \e[96m78\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m\r\n"
+  - delay: 150
+    content: "\e[1AProgress: resolved \e[96m151\e[39m, reused \e[96m151\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m\r\n"
+  - delay: 150
+    content: "Done in 3.1s\r\n"
+  - delay: 150
+    content: "\e[2AProgress: resolved \e[96m274\e[39m, reused \e[96m274\e[39m, downloaded \e[96m0\e[39m, added \e[96m0\e[39m, done\r\n\e[1B"
+  - delay: 30
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                                                                                      \r \r\e]2;jqshuv@vmd88107:~\a\e]1;~\a"
+  - delay: 5
+    content: "\r\e[0m\e[27m\e[24m\e[J\r\n\e[38;5;107m~\e[39m \r\n\e[37m❯\e[39m \e[K\e[?1h\e=\e[?2004h"
+  - delay: 150
+    content: m
+  - delay: 100
+    content: "\bma"
+  - delay: 100
+    content: k
+  - delay: 100
+    content: e
+  - delay: 100
+    content: p
+  - delay: 100
+    content: a
+  - delay: 100
+    content: s
+  - delay: 100
+    content: s
+  - delay: 100
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;makepass\a\e]1;makepass\a"
+  - delay: 102
+    content: "IGFKTXWyoITlrsj1\r\n"
+  - delay: 8
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                                                                                      \r \r\e]2;jqshuv@vmd88107:~\a\e]1;~\a"
+  - delay: 5
+    content: "\r\e[0m\e[27m\e[24m\e[J\r\n\e[38;5;107m~\e[39m \r\n\e[37m❯\e[39m \e[K\e[?1h\e=\e[?2004h"
+  - delay: 695
+    content: m
+  - delay: 100
+    content: "\bma"
+  - delay: 100
+    content: k
+  - delay: 100
+    content: e
+  - delay: 100
+    content: p
+  - delay: 100
+    content: a
+  - delay: 100
+    content: s
+  - delay: 100
+    content: s
+  - delay: 100
+    content: ' '
+  - delay: 100
+    content: '-'
+  - delay: 100
+    content: l
+  - delay: 100
+    content: ' '
+  - delay: 100
+    content: '3'
+  - delay: 100
+    content: '2'
+  - delay: 100
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;makepass -l 32\a\e]1;makepass\a"
+  - delay: 121
+    content: "Fw0QfhQvDtEnP0DE1TsJUeoUjHJHaDu6\r\n"
+  - delay: 32
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                                                                                      \r \r\e]2;jqshuv@vmd88107:~\a\e]1;~\a"
+  - delay: 7
+    content: "\r\e[0m\e[27m\e[24m\e[J\r\n\e[38;5;107m~\e[39m \r\n\e[37m❯\e[39m \e[K\e[?1h\e=\e[?2004h"
+  - delay: 789
+    content: m
+  - delay: 100
+    content: "\bma"
+  - delay: 100
+    content: k
+  - delay: 100
+    content: e
+  - delay: 100
+    content: p
+  - delay: 100
+    content: a
+  - delay: 100
+    content: s
+  - delay: 100
+    content: s
+  - delay: 100
+    content: ' '
+  - delay: 100
+    content: '-'
+  - delay: 100
+    content: C
+  - delay: 100
+    content: ' '
+  - delay: 100
+    content: '-'
+  - delay: 100
+    content: 'N'
+  - delay: 100
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;makepass -C -N\a\e]1;makepass\a"
+  - delay: 100
+    content: "tcyyztzpvexlkapq\r\n"
+  - delay: 9
+    content: "\e[?2004l\r\r\n"
