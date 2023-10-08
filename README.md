@@ -120,26 +120,22 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
-  npm install npm@latest -g
+  npm install makepass
   ```
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://jqshuv.com](https://jqshuv.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/jqshuv/readme.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+* Install
+  ```sh
+  npm install -g makepass 
+  ```
+
+* Use directly
+  ```sh
+  npx makepass
+  ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,7 +236,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-shield]: https://img.shields.io/github/issues/jqshuv/makepass.svg?style=for-the-badge
 [issues-url]: https://github.com/jqshuv/makepass/issues
 [license-shield]: https://img.shields.io/github/license/jqshuv/makepass.svg?style=for-the-badge
-[license-url]: https://github.com/jqshuv/makepass/blob/master/LICENSE.txt
+[license-url]: https://github.com/jqshuv/makepass/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [product-screenshot]: demo.gif
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
