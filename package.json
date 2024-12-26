@@ -9,7 +9,7 @@
   "main": "build/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "makepass": "node build/index.js"
+    "makepass": "build/index.js"
   },
   "scripts": {
     "build": "tsc",
