@@ -1,0 +1,7 @@
+note_modules
+out
+build
+.git
+.gitignore
+*.md
+dist
