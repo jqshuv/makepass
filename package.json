@@ -6,10 +6,14 @@
   "author": "Joshua Schmitt <me@jqshuv.com>",
   "repository": "https://github.com/jqshuv/makepass",
   "keywords": [],
+  "private": false,
   "main": "build/index.js",
   "types": "dist/index.d.ts",
   "bin": {
     "makepass": "build/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc",
