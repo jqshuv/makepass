@@ -12,9 +12,6 @@
   "bin": {
     "makepass": "build/index.js"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "tsc",
     "start": "node build/index.js",
