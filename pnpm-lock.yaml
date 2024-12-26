@@ -1,43 +1,58 @@
-lockfileVersion: '6.0'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  chalk:
-    specifier: ^5.3.0
-    version: 5.3.0
-  commander:
-    specifier: ^11.0.0
-    version: 11.0.0
+importers:
 
-devDependencies:
-  '@types/node':
-    specifier: ^20.8.3
-    version: 20.8.3
-  typescript:
-    specifier: ^5.2.2
-    version: 5.2.2
+  .:
+    dependencies:
+      chalk:
+        specifier: ^5.4.1
+        version: 5.4.1
+      commander:
+        specifier: ^11.1.0
+        version: 11.1.0
+    devDependencies:
+      '@types/node':
+        specifier: ^20.17.10
+        version: 20.17.10
+      typescript:
+        specifier: ^5.7.2
+        version: 5.7.2
 
 packages:
 
-  /@types/node@20.8.3:
-    resolution: {integrity: sha512-jxiZQFpb+NlH5kjW49vXxvxTjeeqlbsnTAdBTKpzEdPs9itay7MscYXz3Fo9VYFEsfQ6LJFitHad3faerLAjCw==}
-    dev: true
+  '@types/node@20.17.10':
+    resolution: {integrity: sha512-/jrvh5h6NXhEauFFexRin69nA0uHJ5gwk4iDivp/DeoEua3uwCUto6PC86IpRITBOs4+6i2I56K5x5b6WYGXHA==}
 
-  /chalk@5.3.0:
-    resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
+  chalk@5.4.1:
+    resolution: {integrity: sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: false
 
-  /commander@11.0.0:
-    resolution: {integrity: sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==}
+  commander@11.1.0:
+    resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
     engines: {node: '>=16'}
-    dev: false
 
-  /typescript@5.2.2:
-    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
+  typescript@5.7.2:
+    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
+
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+snapshots:
+
+  '@types/node@20.17.10':
+    dependencies:
+      undici-types: 6.19.8
+
+  chalk@5.4.1: {}
+
+  commander@11.1.0: {}
+
+  typescript@5.7.2: {}
+
+  undici-types@6.19.8: {}
