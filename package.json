@@ -1,6 +1,6 @@
 {
   "name": "makepass",
-  "version": "1.3.0",
+  "version": "1.3.2",
   "description": "A very simple password generator for the command line.",
   "license": "MIT",
   "author": "Joshua Schmitt <me@jqshuv.com>",
