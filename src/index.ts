@@ -81,13 +81,19 @@ async function runInteractive(): Promise<void> {
   outro(password);
 }
 
-function runNonInteractive(values: {
-  length: string;
-  symbols: boolean;
-  "no-caps": boolean;
-  "no-numbers": boolean;
-  secret: boolean;
-}): void {
+function runNonInteractive(): void {
+  const { values } = parseArgs({
+    args: Bun.argv.slice(2),
+    options: {
+      length: { type: "string", short: "l", default: "16" },
+      symbols: { type: "boolean", short: "s", default: false },
+      "no-caps": { type: "boolean", short: "C", default: false },
+      "no-numbers": { type: "boolean", short: "N", default: false },
+      secret: { type: "boolean", short: "g", default: false },
+    },
+    allowPositionals: false,
+  });
+
   const password = values.secret
     ? generatePassword({ length: 32, symbols: false, caps: true, numbers: true })
     : generatePassword({
@@ -100,21 +106,10 @@ function runNonInteractive(values: {
   console.log(password);
 }
 
-const { values } = parseArgs({
-  args: Bun.argv.slice(2),
-  options: {
-    length: { type: "string", short: "l", default: "16" },
-    symbols: { type: "boolean", short: "s", default: false },
-    "no-caps": { type: "boolean", short: "C", default: false },
-    "no-numbers": { type: "boolean", short: "N", default: false },
-    secret: { type: "boolean", short: "g", default: false },
-    interactive: { type: "boolean", short: "i", default: false },
-  },
-  allowPositionals: false,
-});
+const hasFlags = Bun.argv.slice(2).length > 0;
 
-if (values.interactive) {
-  await runInteractive();
+if (hasFlags) {
+  runNonInteractive();
 } else {
-  runNonInteractive(values);
+  await runInteractive();
 }
