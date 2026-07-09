@@ -75,4 +75,4 @@ jobs:
 
       - run: bun run build
 
-      - run: bun publish --access public
+      - run: npm publish
