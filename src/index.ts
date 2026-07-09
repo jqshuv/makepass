@@ -1,40 +1,120 @@
+#!/usr/bin/env bun
 // Copyright (c) 2023 Joshua Schmitt
-// 
+//
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import { program } from "commander";
+import { intro, outro, cancel, group, text, confirm } from "@clack/prompts";
+import { parseArgs } from "node:util";
 
-program
-  .name('makepass')
-  .description('A very simple password generator for the command line.')
-  .version('1.0.0')
-  .option('-l, --length <number>', 'length of password', '16')
-  .option('-s, --symbols', 'include symbols')
-  .option('-C, --no-caps', 'exclude capital letters')
-  .option('-N, --no-numbers', 'exclude numbers')
-  .option('-g, --secret', 'shortcut for create 32 length secrets')
-  .action((options) => {
-    if (options.secret) {
-      options.length = 32;
-      options.caps = false;
-      options.numbers = true;
-      options.symbols = false;
+interface PasswordOptions {
+  length: number;
+  symbols: boolean;
+  caps: boolean;
+  numbers: boolean;
+}
+
+function generatePassword({ length, symbols, caps, numbers }: PasswordOptions): string {
+  let baseChars = "abcdefghijklmnopqrstuvwxyz";
+  if (caps) baseChars += baseChars.toUpperCase();
+  if (numbers) baseChars += "0123456789";
+  if (symbols) baseChars += "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const random = Math.floor(Math.random() * baseChars.length);
+    password += baseChars[random];
+  }
+  return password;
+}
+
+async function runInteractive(): Promise<void> {
+  intro("makepass");
+
+  const options = await group(
+    {
+      secret: () =>
+        confirm({
+          message: "Generate a 32-character secret (alphanumeric, no symbols)?",
+          initialValue: false,
+        }),
+      length: ({ results }) =>
+        results.secret
+          ? Promise.resolve(undefined)
+          : text({
+              message: "Password length",
+              initialValue: "16",
+              validate: (value) => {
+                if (!value || !/^\d+$/.test(value) || Number(value) < 1) return "Enter a positive number";
+              },
+            }),
+      caps: ({ results }) =>
+        results.secret
+          ? Promise.resolve(undefined)
+          : confirm({ message: "Include capital letters?", initialValue: true }),
+      numbers: ({ results }) =>
+        results.secret
+          ? Promise.resolve(undefined)
+          : confirm({ message: "Include numbers?", initialValue: true }),
+      symbols: ({ results }) =>
+        results.secret
+          ? Promise.resolve(undefined)
+          : confirm({ message: "Include symbols?", initialValue: false }),
+    },
+    {
+      onCancel: () => {
+        cancel("Cancelled.");
+        process.exit(0);
+      },
     }
+  );
 
-    let baseChars = 'abcdefghijklmnopqrstuvwxyz';
-    if (options.caps) baseChars += baseChars.toUpperCase();
-    if (options.numbers) baseChars += '0123456789';
-    if (options.symbols) baseChars += '!@#$%^&*()_+~`|}{[]:;?><,./-=';
+  const password = options.secret
+    ? generatePassword({ length: 32, symbols: false, caps: true, numbers: true })
+    : generatePassword({
+        length: Number(options.length),
+        symbols: options.symbols as boolean,
+        caps: options.caps as boolean,
+        numbers: options.numbers as boolean,
+      });
 
-    let password = '';
+  outro(password);
+}
 
-    for (let i = 0; i < options.length; i++) {
-      const random = Math.floor(Math.random() * baseChars.length);
-      password += baseChars.substring(random, random + 1);
-    }
+function runNonInteractive(values: {
+  length: string;
+  symbols: boolean;
+  "no-caps": boolean;
+  "no-numbers": boolean;
+  secret: boolean;
+}): void {
+  const password = values.secret
+    ? generatePassword({ length: 32, symbols: false, caps: true, numbers: true })
+    : generatePassword({
+        length: Number(values.length),
+        symbols: values.symbols,
+        caps: !values["no-caps"],
+        numbers: !values["no-numbers"],
+      });
 
-    console.log(password)
-  });
+  console.log(password);
+}
 
-program.parse(process.argv);
+const { values } = parseArgs({
+  args: Bun.argv.slice(2),
+  options: {
+    length: { type: "string", short: "l", default: "16" },
+    symbols: { type: "boolean", short: "s", default: false },
+    "no-caps": { type: "boolean", short: "C", default: false },
+    "no-numbers": { type: "boolean", short: "N", default: false },
+    secret: { type: "boolean", short: "g", default: false },
+    interactive: { type: "boolean", short: "i", default: false },
+  },
+  allowPositionals: false,
+});
+
+if (values.interactive) {
+  await runInteractive();
+} else {
+  runNonInteractive(values);
+}

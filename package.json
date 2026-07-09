@@ -1,30 +1,30 @@
 {
   "name": "makepass",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A very simple password generator for the command line.",
   "license": "MIT",
   "author": "Joshua Schmitt <me@jqshuv.com>",
   "repository": "https://github.com/jqshuv/makepass",
   "keywords": [],
   "private": false,
+  "type": "module",
   "main": "build/index.js",
-  "types": "dist/index.d.ts",
   "bin": {
     "makepass": "build/index.js"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node build/index.js",
-    "dev": "ts-node src/index.ts",
-    "compile": "bun build build/index.js --compile --outfile out"
+    "build": "bun build ./src/index.ts --outdir build --target node",
+    "start": "bun run build/index.js",
+    "dev": "bun run src/index.ts",
+    "compile": "bun build ./src/index.ts --compile --outfile makepass"
   },
   "dependencies": {
-    "chalk": "^5.4.1",
-    "commander": "^11.1.0"
+    "@clack/prompts": "^1.7.0"
   },
   "devDependencies": {
-    "@types/node": "^20.17.10",
-    "typescript": "^5.7.2"
+    "@types/bun": "^1.3.14",
+    "@types/node": "^26.1.1",
+    "typescript": "^7.0.2"
   },
-  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
+  "packageManager": "bun@1.2.0"
 }
